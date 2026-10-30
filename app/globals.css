@@ -150,3 +150,4 @@ h1,h2,h3{font-weight:650}
  .existing-footer{position:fixed;bottom:-21mm;left:0;right:0}.existing-footer img{width:32mm}.existing-footer p{font-size:10px}
  .existing-signatures,.existing-closing{break-inside:avoid}
 }
+.email-login-form{display:grid;gap:20px;margin:26px 0}.email-login-form .login-button{width:100%;border:0;justify-content:center}.email-login-form .field{text-align:left}.setup-guide{margin:24px 0;padding:22px;border:1px solid #cbd5e1;border-radius:12px;text-align:left;background:#f8fafc}.setup-guide h2{font-size:20px}.setup-guide ul{margin:15px 0;padding-left:22px;font-size:14px;overflow-wrap:anywhere}.sidebar-footer>button{margin-left:auto;border:0;background:none;color:#64748b;padding:8px}.signout{border:0;background:none;width:100%;cursor:pointer}

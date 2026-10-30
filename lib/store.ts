@@ -1,4 +1,4 @@
-import { env } from 'cloudflare:workers';
+import { env } from '@/lib/platform';
 import { getChatGPTUser } from '../app/chatgpt-auth';
 import { kinds, fail, canRead, totals, cents, paymentSum, validateSchedule, validateReport, transitions, type Entry, type Kind, type Data, type Role } from './domain';
 
@@ -7,8 +7,8 @@ export function database(){if(!env.DB)fail('Database binding is unavailable.');r
 export async function currentMember():Promise<Member>{
  const user=await getChatGPTUser();if(!user)throw new Error('UNAUTHENTICATED');
  const db=database();const email=user.email.toLowerCase();
- // New Sites are owner-private. Only the first authenticated visitor can bootstrap.
- await db.prepare("INSERT OR IGNORE INTO members (id,email,name,role,phone,active,created_at) SELECT 'workspace-owner',?,?,'owner','',1,? WHERE NOT EXISTS (SELECT 1 FROM members)").bind(email,user.displayName,new Date().toISOString()).run();
+ // Public Vercel deployments bootstrap only the explicitly configured owner email.
+ if(email===(process.env.OWNER_EMAIL||'').toLowerCase().trim())await db.prepare("INSERT OR IGNORE INTO members (id,email,name,role,phone,active,created_at) SELECT 'workspace-owner',?,?,'owner','',1,? WHERE NOT EXISTS (SELECT 1 FROM members)").bind(email,user.displayName,new Date().toISOString()).run();
  const member=await db.prepare('SELECT * FROM members WHERE email=? AND active=1').bind(email).first<Member>();
  if(!member)throw new Error('FORBIDDEN: Your account has not been added to this workspace.');return member;
 }

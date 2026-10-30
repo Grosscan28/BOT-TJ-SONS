@@ -5,7 +5,7 @@ import {createRequire} from 'node:module';
 import {readFileSync,mkdirSync} from 'node:fs';
 import {totals,paymentSum,finance,accountBalance,validateReport,timeOverlap} from '../lib/domain.ts';
 import {importRequestedDummy} from '../lib/requested-dummy.ts';
-const require=createRequire(import.meta.url);const {build}=require(require.resolve('esbuild',{paths:[require.resolve('vite')]}));
+const require=createRequire(import.meta.url);const {build}=require('esbuild');
 mkdirSync('.sites-runtime/tests',{recursive:true});
 await build({entryPoints:['lib/import-business-dummy.ts'],outfile:'.sites-runtime/tests/business-dummy.mjs',bundle:true,platform:'node',format:'esm'});
 const {importBusinessDummy}=await import('../.sites-runtime/tests/business-dummy.mjs');

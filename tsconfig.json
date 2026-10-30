@@ -48,6 +48,15 @@
     ".wrangler",
     ".sites-runtime",
     "outputs",
-    "work"
+    "work",
+    "scripts/vite",
+    "scripts/connector-preview",
+    "worker",
+    "vite.config.ts",
+    "drizzle.config.ts",
+    "lib/connector-types.ts",
+    "lib/connector-context.ts",
+    "lib/connector-contract.mjs",
+    "db/schema.ts"
   ]
 }
