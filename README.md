@@ -94,7 +94,7 @@ Both portals use English interface labels and system notifications, with a share
 
 ### Existing quotation branding
 
-The original reference PDF is excluded from this public repository pending explicit approval to publish its customer, banking and signature details.
+The owner-approved original reference PDF is available at [`docs/reference/quotation-existing.pdf`](docs/reference/quotation-existing.pdf).
 `public/brand/` contains the original truck, association and footer logos extracted
 from that PDF, plus its company wordmark. The generated quotation/invoice uses
 `components/business-document.tsx`, standard wording in `lib/document-template.ts`,
@@ -106,4 +106,4 @@ areas, subtotals, other charges and a repeated print footer.
 
 ### Public repository configuration
 
-This public copy omits the private reference PDF and clears real contact, tax and bank details from template defaults. Enter the authorised details in Company Settings. Training work orders select an active non-dummy PIC rather than embedding a personal email in source.
+This public copy includes the original reference PDF with the owner's explicit publication approval. Real contact, tax and bank details remain cleared from template defaults. Enter the authorised details in Company Settings. Training work orders select an active non-dummy PIC rather than embedding a personal email in source.
